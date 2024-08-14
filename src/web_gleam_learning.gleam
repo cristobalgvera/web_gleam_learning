@@ -1,3 +1,4 @@
+import app/router
 import app/web
 import dot_env
 import dot_env/env
@@ -14,7 +15,7 @@ pub fn main() {
   let context = web.Context(static_directory: get_static_directory(), items: [])
 
   let assert Ok(_) =
-    wisp.mist_handler(fn(_) { todo }, secret_key_base)
+    wisp.mist_handler(router.handle_request(_, context), secret_key_base)
     |> mist.new
     |> mist.start_http
 
