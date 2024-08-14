@@ -1,5 +1,14 @@
-import gleam/io
+import gleam/erlang/process
+import mist
+import wisp
 
 pub fn main() {
-  io.println("Hello from web_gleam_learning!")
+  wisp.configure_logger()
+
+  let assert Ok(_) =
+    wisp.mist_handler(fn(_) { todo }, "secret_key")
+    |> mist.new
+    |> mist.start_http
+
+  process.sleep_forever()
 }
