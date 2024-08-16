@@ -12,7 +12,7 @@ pub fn layout(elements: List(Element(t))) -> Element(t) {
       ]),
       html.link([
         attribute.rel("stylesheet"),
-        attribute.href("/static/style.css"),
+        attribute.href("/static/styles.css"),
       ]),
     ]),
     html.body([], elements),
